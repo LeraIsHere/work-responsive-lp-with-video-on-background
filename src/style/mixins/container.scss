@@ -1,0 +1,116 @@
+.container{
+
+    @include box(100vw,100vh);
+    @include flex(center,center);
+    position: relative;
+    overflow: hidden;
+
+    .content{
+
+        text-align: center;
+        text-shadow: $shadow;
+
+        h1{
+            font-size: 9rem;
+            color: $blue;
+
+            @media(max-width:550px){
+                    font-size: 4rem;        
+            }
+        }
+
+        h2{
+            font-size: 7rem;
+            color: $white;
+
+            @media(max-width:550px){
+                    font-size: 3rem;        
+            }
+        }
+
+        button{
+            margin-top: 2rem;
+            outline: none;
+            border: none;
+            border-radius: 5rem;
+            @include box(15rem,4rem);
+            background: $blue;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: $white;
+            box-shadow: $shadow;
+
+            &:hover{
+                background: $black-hover;
+                letter-spacing: .2rem;
+            }
+        }
+
+        .icons{
+            margin-top: 5rem;
+             
+            a{
+                font-size: 1.7rem;
+                @include box(4rem,4rem);
+                line-height: 4rem;
+                text-align: center;
+                border-radius: 5rem;
+                background: $white;
+                text-decoration: none;
+                color: $blue;
+                text-shadow: none;
+                box-shadow: $shadow;
+                margin: 0 .5rem;
+
+                &:hover{
+                    background: $black-hover;
+                    color: $white;
+                }
+            }
+        }
+
+    }
+
+    .video-container{
+        @include abs-position(0,auto,auto,0);
+        @include box(100%,100%);
+        z-index: -1;
+
+        video{
+            @include box(100%,100%);
+            object-fit: cover;
+            animation: video .5s alternate;
+            display: none;
+
+            &.vid1{
+                display: block;
+            }
+        }
+    }
+
+    .controls{
+        @include abs-position(auto,auto,15%,50%);
+        transform: translateX(-50%);
+        display: flex;
+
+        .dots{
+            @include box(4.5rem,1.5rem);
+            background: $white;
+            margin: 0 1rem;
+            box-shadow: $shadow;
+            border-radius: 5rem;
+            cursor: pointer;
+
+            &:hover{
+                background: $black-hover;
+            }
+        }
+    }
+
+    @keyframes video {
+        0%{
+            transform: scale(3.5) skew(-45deg) rotate(45deg);
+        }
+    }
+
+}
